@@ -1,4 +1,4 @@
-fetch('students.json')
+fetch('students.csv')
   .then(response => {
     if (!response.ok) {
       throw new Error("Failed to fetch JSON");
@@ -6,6 +6,7 @@ fetch('students.json')
     return response.json();
   })
   .then(students => {
+	  // console.log(students);
     students.forEach(student => {
       const total = student.marks.reduce((sum, mark) => sum + mark, 0);
       const average = total / student.marks.length;
